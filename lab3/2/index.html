@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Number</title>
+    <style>
+        body {
+            justify-items: center;
+        }
+        img {
+
+            height: 100px;
+        }
+        div {
+            margin-top: 20px;
+        }
+        button {
+            font-size: 15px;
+            padding: 5px 10px;
+            background-color: rgb(220, 242, 255);
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>สุ่มตัวเลข</h1>
+    <img src="http://webdev.it.kmitl.ac.th/labdocs/lab3/images/0.png" alt="0" id="random1">
+    <img src="http://webdev.it.kmitl.ac.th/labdocs/lab3/images/0.png" alt="0" id="random2">
+    <img src="http://webdev.it.kmitl.ac.th/labdocs/lab3/images/0.png" alt="0" id="random3">
+    <img src="http://webdev.it.kmitl.ac.th/labdocs/lab3/images/0.png" alt="0" id="random4">
+    <img src="http://webdev.it.kmitl.ac.th/labdocs/lab3/images/0.png" alt="0" id="random5">
+    <img src="http://webdev.it.kmitl.ac.th/labdocs/lab3/images/0.png" alt="0" id="random6">
+    <div>
+        <button onclick="generateRandom()">Generate</button>
+    </div>
+    <script>
+        function generateRandom() {
+            for (let i = 1; i <= 6; i++) {
+                let randomNum = Math.floor(Math.random() * 10);
+                let imgElement = document.getElementById('random' + i);
+                imgElement.src = `http://webdev.it.kmitl.ac.th/labdocs/lab3/images/${randomNum}.png`;
+            }
+        }
+    </script>
+</body>
+</html>

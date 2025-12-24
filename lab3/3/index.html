@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade Calculator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <style>
+        table {
+            border-collapse: collapse;
+            background-color: #be0000;
+            border-color: #ffffff;
+            box-shadow: 2px 3px 0px rgba(0, 0, 0, 0.2);
+        }
+        body {
+            font-family: 'Kanit', sans-serif;
+            background-color: rgb(224, 224, 222);
+            /* background: linear-gradient(to bottom, rgb(126, 108, 108) 50%, rgb(255, 255, 255)); */
+            color: white;
+            font-weight: bold;
+        }
+        .card {
+            display: flex;
+            height: 100vh;
+            align-items: center;
+            justify-content: center;
+
+            div {
+                justify-items: center;
+            }
+        }
+        tr, th, td {
+            padding: 8px;
+            width: 100px;
+
+        }
+        th {
+            background-color: rgb(144, 0, 0);
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 120px;
+            background-color: rgb(0, 114, 21);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 2px 3px 0px rgba(0, 0, 0, 0.2);
+        }
+        button:hover {
+            background-color: rgb(0, 199, 36);
+            box-shadow: 0px 0px 10px rgb(0, 199, 36);
+        }
+        h1 {
+            color: #be0000;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div>
+            <h1>ระบบตัดเกรด</h1>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>ลำดับ</th>
+                        <th>ชื่อ</th>
+                        <th>คะแนน</th>
+                        <th>เกรด</th>
+                    </tr>
+                </thead>
+                <tbody id="student">
+                </tbody>
+            </table>
+            <button onclick="generateGrades()">ตัดเกรด</button>
+        </div>
+    </div>
+    <script>
+        let studentList = [
+            { id: 1, name: "Bambu"},
+            { id: 2, name: "Nano"},
+            { id: 3, name: "C"},
+            { id: 4, name: "PP"},
+            { id: 5, name: "Toby"},
+            { id: 6, name: "Ohm"},
+            { id: 7, name: "Pitch"},
+            { id: 8, name: "Cho"}
+        ]
+
+        let student = document.getElementById("student");
+        studentList.forEach(studentData => {
+            let randomScore = Math.floor(Math.random() * 101);
+            while (randomScore < 40) {
+                randomScore = Math.floor(Math.random() * 101);
+            }
+            student.innerHTML += 
+            `<tr id="student${studentData.id}">
+                <td>${studentData.id}</td>
+                <td>${studentData.name}</td>
+                <td id="score${studentData.id}">${randomScore}</td>
+                <td id="grade${studentData.id}"></td>
+            </tr>`
+        })
+
+        function generateGrades() {
+            studentList.forEach(studentData => {
+                let score = document.getElementById(`score${studentData.id}`).innerText;
+                let grade = '';
+                if (score >= 80) {
+                    grade = 'A';
+                } else if (score >= 70) {
+                    grade = 'B';
+                } else if (score >= 60) {
+                    grade = 'C';
+                } else if (score >= 50) {
+                    grade = 'D';
+                } else {
+                    grade = 'F';
+                }
+                document.getElementById(`grade${studentData.id}`).innerText = grade;
+            })
+        }
+        
+
+    </script>
+</body>
+</html>

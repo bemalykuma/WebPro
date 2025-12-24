@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap" rel="stylesheet">
+     <style>
+        body {
+            justify-items: center;
+            align-items: center;
+            font-family: 'Google Sans', 'sans-serif'; 
+            background-color: rgb(0, 0, 0); 
+        }
+        .position {
+            display: flex;
+            height: 100vh;
+            align-items: center;
+        }
+        .card {
+            box-shadow: 0px 0px 20px rgb(200, 200, 200);
+            border-radius: 10px;
+            padding: 30px;
+            width: 300px;
+            background-color: white;
+        }
+        h1 {
+            text-align: center;
+            margin: 0;
+            font-size: 20px;
+            margin-bottom: 30px;
+            color: #252748;
+        }
+        input {
+            border-radius: 5px;
+            border: 1px solid rgb(196, 196, 196);
+            font-size: 14px;
+            padding: 10px;
+            margin-top: 10px;
+            width: 280px;
+            color: #2e2e2e;
+        }
+        input:focus {
+            outline: none;
+            border: 2px solid #47b4fd;
+        }
+        input::placeholder {
+            color: #bfbfbf;
+        }
+        p {
+            font-size: 14px;
+            font-weight: 600;
+            color: #424242;
+        }
+        button {
+            color: aliceblue;
+            background-color: #47b4fd;
+            border: 0;
+            width: 300px;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+        button:hover {
+            background: linear-gradient(to bottom, #47b4fd, #1778ff);
+            cursor: pointer;
+        }
+
+        .see {
+            font-size: 12px;
+            color: #47b4fd;
+            cursor: pointer;
+            
+        }
+    </style>
+</head>
+<body>
+    <Form>
+        <div class="position">
+            <div class="card">
+                <h1>☃️ User Registration ☃️</h1>
+                <p><label for="username">Username:</label><br>
+                    <input type="text" id="username" class="username">
+                </p>
+                <p><label for="Email">Email:</label><br>
+                    <input type="text" id="email" class="email" placeholder="e.g., user@example.com">
+                </p>
+                <p><label for="PhoneNumber">Phone:</label><br>
+                    <input type="text" id="phoneNum" class="phoneNum" placeholder="e.g., 555-555-5555 (with out ' - ')">
+                </p>
+                <p><label for="Password">Password:</label>
+                    <br>
+                    <input type="password" id="password" class="password">
+                    <span class="see" onclick="togglePassword()">see password</span>
+                </p>
+                <p><label for="Confirm">Confirm Password:</label><br>
+                    <input type="password" id="confirm" class="confirm">
+                    <span class="see" onclick="toggleConfirmPassword()">see password</span>
+                </p>
+                <button onclick="Register()" id="registerbtn">Register</button>
+            </div>
+        </div>
+
+
+    </Form>
+
+    <script src="./valid.js"></script>
+</body>
+</html>

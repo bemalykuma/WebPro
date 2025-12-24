@@ -1,0 +1,32 @@
+
+body {
+    font-family: "Raleway", sans-serif;
+    font-weight: 500;
+    justify-items: center;
+}
+img {
+    border-radius: 10px;
+    width: 950px;
+}
+.description {
+    background-color: #d1d1d1;
+    padding: 14px;
+    border-radius: 10px;
+    width: 940px;
+}
+table {
+    border-collapse: collapse;
+    width: 950px;
+    margin-bottom: 30px;
+}
+th {
+    padding: 4px;
+}
+td {
+    padding: 4px;
+    padding-right: 10px;
+}
+tr {
+    border: 1px solid black;
+
+}

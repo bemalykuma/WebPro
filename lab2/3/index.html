@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
+    <style>
+        body {
+            justify-items: center;
+            align-items: center;
+            font-size: 50px;
+            font-family: 'Lilita One', cursive;
+            background-image: url('https://www.freevector.com/uploads/vector/preview/31043/Vecteezy_Christmas-Background_BK1120.jpg');
+            /* background-image: url('https://media.macphun.com/img/uploads/macphun/blog/1247/christmasphoto.jpg'); */
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position-y: center;
+
+        }
+        .Calendar {
+            display: flex;
+            align-items: center;
+            height: 100vh;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            border-color: #a10000;
+            box-shadow: 0px 0px 10px #591515;
+        }
+        h1 {
+            margin: 0;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #af0000;
+            text-shadow: #501818 4px 3px 1px;
+            
+        }
+        td {
+            font-size: 25px;
+            width: 130px;
+            padding-bottom: 60px;
+            color: #a10000;
+            border: 2px solid #a10000;
+            background-color: white;
+            
+        }
+        th {
+            font-size: 30px;
+            height: 50px;
+            color: #7e0000;
+            font-weight: 300;
+            border: 2px solid #a10000;
+            background-color: white;
+        }
+        p {
+            margin: 0;
+            padding: 5px 0px 0px 5px;
+            top: 0;
+            left: 0;
+        }
+        .next {
+            color: #632d2dd5;
+            background-color: #cdbaba;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="Calendar">
+        <div>
+            <h1>DECEMBER 2025</h1>
+            <table border="3">
+                <thead>
+                    <tr>
+                        <th>SUN</th>
+                        <th>MON</th>
+                        <th>TUE</th>
+                        <th>WED</th>
+                        <th>THU</th>
+                        <th>FRI</th>
+                        <th>SAT</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="next"><p>30</p></td>
+                        <td><p>01</p></td>
+                        <td><p>02</p></td>
+                        <td><p>03</p></td>
+                        <td><p>04</p></td>
+                        <td><p>05</p></td>
+                        <td><p>06</p></td>
+                    </tr>
+                    <tr>
+                        <td><p>07</p></td>
+                        <td><p>08</p></td>
+                        <td><p>09</p></td>
+                        <td><p>10</p></td>
+                        <td><p>11</p></td>
+                        <td><p>12</p></td>
+                        <td><p>13</p></td>
+                    </tr>
+                    <tr>
+                        <td><p>14</p></td>
+                        <td><p>15</p></td>
+                        <td><p>16</p></td>
+                        <td><p>17</p></td>
+                        <td><p>18</p></td>
+                        <td><p>19</p></td>
+                        <td><p>20</p></td>
+                    </tr>
+                    <tr>
+                        <td><p>21</p></td>
+                        <td><p>22</p></td>
+                        <td><p>23</p></td>
+                        <td><p>24</p></td>
+                        <td><p>25</p></td>
+                        <td><p>26</p></td>
+                        <td><p>27</p></td>
+                    </tr>
+                    <tr>
+                        <td><p>28</p></td>
+                        <td><p>29</p></td>
+                        <td><p>30</p></td>
+                        <td><p>31</p></td>
+                        <td class="next"><p>01</p></td>
+                        <td class="next"><p>02</p></td>
+                        <td class="next"><p>03</p></td>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>
