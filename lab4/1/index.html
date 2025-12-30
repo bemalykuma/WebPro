@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Kanit', sans-serif;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(to bottom, #c300ff, #0095ff, #00ffc8, #eaff00, #ff0000);
+            height: 100vh;
+        }
+        table {
+            width: 200px;
+            margin-top: 20px;
+            background-color: rgba(255, 255, 255, 0.682);
+            box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+            border-radius: 5px;
+        }
+        .inp {
+            display: flex;
+            gap: 6px;
+        }
+        input {
+            padding: 6px;
+            font-size: 16px;
+            width: 100px;
+        }
+        tr, th, td {
+            border-bottom: 1px solid #000000;
+            text-align: center;
+
+        }
+        button {
+            background-color: rgb(234, 52, 73);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 8px;
+            cursor: pointer;
+            font-family: 'Kanit', sans-serif;
+        }
+        button:hover {
+            background-color: rgb(179, 29, 49);
+        }
+        h1 {
+            margin-top: 30px;
+            color: white;
+            text-shadow: 2px 2px 4px #000000;
+        }
+    </style>
+</head>
+<body>
+    <h1>ป้อนเลขสูตรคูณ [1-12]:</h1>
+    <div class="inp">
+        <input type="number" id="numInput">
+        <button onclick="Calculate()">แสดงสูตรคูณ</button>
+    </div>
+    <table id="tb" >
+    </table>
+
+    <script>
+        function Calculate() {
+            let num = document.getElementById("numInput").value;
+            while (num < 1 || num > 12) {
+                alert("โปรดป้อนเลขระหว่าง 1-12");
+                return;
+            }
+
+            if (num != null && num != "") {
+                let table = document.getElementById("tb");
+                table.replaceChildren();
+
+                let tr = document.createElement("tr");
+                let th = document.createElement("th");
+                th.appendChild(document.createTextNode("ตัวคูณ"));
+                tr.appendChild(th);
+                th = document.createElement("th");
+                th.appendChild(document.createTextNode("ผลลัพธ์"));
+                tr.appendChild(th);
+                table.appendChild(tr);
+                
+                for (let i = 1; i <= 12; i++) {
+                    let row = document.createElement("tr");
+                    let col1 = document.createElement("td");
+                    let col2 = document.createElement("td");
+    
+                    col1.appendChild(document.createTextNode(num + " x " + i));
+                    col2.appendChild(document.createTextNode(num*i));
+    
+                    row.appendChild(col1);
+                    row.appendChild(col2);
+                    table.appendChild(row);
+                }
+            }
+            table.appendChild(tr);
+        }
+        
+    </script>
+</body>
+</html>
