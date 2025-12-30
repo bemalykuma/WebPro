@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>รวมสูตรอาหาร</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="position-ar"><a href="#home"><i class="arrow-up up"></i></a></div>
+        <nav>
+            <div>
+                <a href="#home" class="home">Home</a>
+                <div class="dropdown" id="dropdown">
+                    <button onclick="dropdownActive(event)" class="menubtn"
+                        id="menuBtn">Menu<i class="triangle-down"></i></button>
+                    <div class="menuContent" id="menuContent">
+                        <div class="head">ประเภทอาหาร</div>
+                        <div class="row">
+                            <div class="column">
+                                <h3>อาหารไทย</h3>
+                                <a href="#1">ต้มยำกุ้ง</a>
+                                <a href="#2">ผัดไทย</a>
+                                <a href="#3">ส้มตำไทยไข่เค็ม</a>
+                                <a href="#4">เต้าหู้ไข่ลูกเขย</a>
+                            </div>
+                            <div class="column">
+                                <h3>ของหวาน</h3>
+                                <a href="#5">บานอฟฟี่</a>
+                                <a href="#6">เค้กกล้วยหอม</a>
+                                <a href="#7">ซอฟคุกกี้</a>
+                                <a href="#8">เค้กเรดเวลเวต</a>
+                            </div>
+                            <div class="column">
+                                <h3>อาหารจากอนิเมะ</h3>
+                                <a href="#9">พอร์คพิคคาตาราดมีทซอส</a>
+                                <a href="#10">ปลาแซลมอนทอดแบบเมอนิแยร์</a>
+                                <a href="#11">แฮมเบิร์กเนื้อไส้ชีส</a>
+                                <a href="#12">พิซซ่าญี่ปุ่นโอโคโนมิยากิ</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ref">
+                <a href="#ref">Ref.</a>
+            </div>
+        </nav>
+
+        <section id="home" class="pageH">
+            <div><h1>รวมสูตรอาหารหลากหลายประเภท</h1></div>
+            <div id="foodList"></div>
+        </section>
+
+        <div id="start">
+        </div>
+
+        <footer id="ref">
+            <h3>Reference</h3>
+            <ul class="ref-list">
+                <li>สูตรต้มยำกุ้ง → <a href="https://www.wongnai.com/recipes/ugc/06c21e83ed584ed4996a129af5c3231c">https://www.wongnai.com/recipes/ugc/06c21e83ed584ed4996a129af5c3231c</a></li>
+                <li>สูตรผัดไทย → <a href="https://recipe.sgethai.com/recipes/pad-thai/">https://recipe.sgethai.com/recipes/pad-thai/</a></li>
+                <li>สูตรส้มตำไทยไข่เค็ม → <a href="https://cooking.kapook.com/view154485.html">https://cooking.kapook.com/view154485.html</a></li>
+                <li>สูตรเต้าหู้ไข่ลูกเขย → <a href="https://www.wongnai.com/recipes/fried-egg-tofu-with-tamarind-sauce">https://www.wongnai.com/recipes/fried-egg-tofu-with-tamarind-sauce</a></li>
+                <li>สูตรบานอฟฟี่พายคาราเมล → <a href="https://cooking.kapook.com/view122679.html">https://cooking.kapook.com/view122679.html</a></li>
+                <li>สูตรเค้กกล้วยหอม → <a href="https://cooking.kapook.com/view239570.html">https://cooking.kapook.com/view239570.html</a></li>
+                <li>สูตรซอฟคุกกี้ → <a href="https://recipe.sgethai.com/recipes/soft-cookies/#google_vignette">https://recipe.sgethai.com/recipes/soft-cookies/#google_vignette</a></li>
+                <li>สูตรเค้กเรดเวลเวต → <a href="https://recipe.sgethai.com/recipes/red-velvet-cake/">https://recipe.sgethai.com/recipes/red-velvet-cake/</a></li>
+                <li>สูตรพอร์คพิคคาตาราดมีทซอส → <a href="https://krua.co/recipe/pork-piccata-with-meat-sauce#google_vignette">https://krua.co/recipe/pork-piccata-with-meat-sauce#google_vignette</a></li>
+                <li>สูตรปลาแซลมอนทอดแบบเมอนิแยร์ → <a href="https://krua.co/recipe/meuniere-salmon">https://krua.co/recipe/meuniere-salmon</a></li>
+                <li>สูตรแฮมเบิร์กเนื้อไส้ชีส → <a href="https://krua.co/recipe/beef-hamburg-with-cheese">https://krua.co/recipe/beef-hamburg-with-cheese</a></li>
+                <li>สูตรพิซซ่าญี่ปุ่นโอโคโนมิยากิ → <a href="https://food.trueid.net/detail/VwmDYkk6OZX4">https://food.trueid.net/detail/VwmDYkk6OZX4</a></li>
+            </ul>
+        </footer>
+
+        <script src="script.js"></script>
+
+    </body>
+</html>
