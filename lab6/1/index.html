@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>employees</title>
+    <style>
+        * {
+            font-family: Arial, sans-serif;
+        }
+        tr {
+            border-bottom: 1px solid rgb(228, 228, 228);
+
+        }
+        table {
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f8f7f7;
+        }
+        tr:nth-child(odd) {
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <div id="tab"></div>
+    <script>
+        function emp(data) {
+            let text = "<table>";
+            text += "<tr><th>ID</th><th>Name</th><th>Gender</th><th>Position</th><th>Address</th></tr>";
+            data.forEach(function(emp) {   
+                text += "<tr>";
+                text += "<td>" + emp.id + "</td>";
+                text += "<td>" + emp.FirstName + " " + emp.LastName + "</td>";
+                text += "<td>" + emp.Gender[0] + "</td>";
+                text += "<td>" + emp.Position + "</td>";
+                text += "<td>" + emp.Address + "</td>";
+                text += "</tr>";
+            });
+            text += "</table>";
+            document.getElementById("tab").innerHTML = text;
+        }
+
+        fetch('employees.json')
+        .then(response => response.json())
+        .then(data => emp(data))
+            .catch(error => console.log('error', error));
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student</title>
+    <style>
+        * {
+            font-family: Arial, sans-serif;
+        }
+        #student div {
+            box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px;
+            width: 220px;
+            height: 380px;
+            float: left;
+        }
+        img {
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            width: 220px;
+            height: 220px;
+        }
+        p {
+            margin-bottom: 5px;
+            padding: 0 10px;
+        }
+        h2 {
+            padding: 0 10px;
+            margin-bottom: 0px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="student"></div>
+    <script>
+        function info(data) {
+            let text = "";
+            data.forEach(function(std, index) {   
+                text += `<div><img src="images/${std.gender}.png" alt="student picture">
+                    <h2>${index+1}. ${std.name}</h2><p>Physics: ${std.physics}</p><p>Mathematics: ${std.maths}</p><p>English: ${std.english}</p>
+                    </div>`;
+            });
+            document.getElementById("student").innerHTML = text;
+        }
+
+        fetch('student-score.json')
+        .then(response => response.json())
+        .then(data => info(data))
+            .catch(error => console.log('error', error));
+    </script>
+</body>
+</html>

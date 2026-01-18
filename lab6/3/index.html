@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuJudge</title>
+    <style>
+        body {
+            padding: 20px;
+        }
+        * {
+            font-family: Arial, sans-serif;
+        }
+        p {
+            margin-bottom: 0px;
+            font-size: 18px;
+        }
+        input {
+            margin-bottom: 20px;
+            margin-top: 0;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="q"></div>
+    <script>
+        let total = 0;
+        function quest(data) {
+            let text = "";
+            data.forEach(function(question, index) {   
+                text += `<p>${index + 1}. ${question.question}</p><br>`;
+                text += `<input type="radio" name="q${index}" value="a">a. ${question.answers.a}</input><br>
+                <input type="radio" name="q${index}" value="b">b. ${question.answers.b}</input><br>
+                <input type="radio" name="q${index}" value="c">c. ${question.answers.c}</input><br>`;
+            });
+            document.getElementById("q").innerHTML = text;
+        }
+
+        fetch('questionAnswerData.json')
+        .then(response => response.json())
+        .then(data => quest(data))
+            .catch(error => console.log('error', error));
+    </script>
+</body>
+</html>

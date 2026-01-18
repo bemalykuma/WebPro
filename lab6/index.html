@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>lab6</title>
+    </head>
+    <body>
+        <form id="myForm">
+            <div><label for='FirstName'>First Name:</label>
+                <input type="text" id="FirstName" name="FirstName" />
+            </div>
+            <div><label for='LastName'>Last Name:</label>
+                <input type="text" id="LastName" name="LastName" />
+            </div>
+            <div><label for='Country'>Country:</label>
+                <select id="Country" name="Country">
+                    <option value="000" selected="selected">-Select-</option>
+                    <option value="Thailand">Thailand</option>
+                    <option value="Vietnam">Vietnam</option>
+                    <option value="Laos">Laos</option>
+                    <option value="Malaysia">Malaysia</option>
+                    <option value="Singapore">Singapore</option>
+                    <option value="Philippines">Philippines</option>
+                    <option value="Myanmar">Myanmar</option>
+                    <option value="Brunei">Brunei</option>
+                    <option value="Indonesia">Indonesia</option>
+                </select>
+            </div>
+        </form>
+        <button onclick="SaveForm()">Save data</button>
+        <button onclick="LoadData()">Show data</button>
+
+        <script> 
+            LoadData()
+            function SaveForm() {
+                let fname = document.getElementById("FirstName").value;
+                let lname = document.getElementById("LastName").value;
+                let country = document.getElementById("Country").value;
+                // save data to local storage
+                localStorage.setItem('userFirstName',fname);
+                localStorage.setItem('userLastName',lname);
+                localStorage.setItem('userCountry',country);
+                alert("Data saved");
+            }
+            function LoadData(){
+                    // load data from local storage
+                    let fn = localStorage.getItem('userFirstName');
+                    let ln = localStorage.getItem('userLastName');
+                    let c = localStorage.getItem('userCountry');
+                    document.getElementById("FirstName").value= fn;
+                    document.getElementById("LastName").value= ln;
+                    document.getElementById("Country").value = c;
+
+                    alert("Data loaded");
+            }
+        </script>
+        <!--  -------------------------------------------------------------------------- -->
+
+        <!-- <div id="div1"></div>
+
+        <script>
+        function orders(data) {
+            let text = "Order ID:" +data.orderId + "<br>" + "Order Date:" +data.orderDate + "<br>" + "Customer Name: " +data.customer.name + "<br>" + "Email: " +data.customer.email + "<br>";
+            let tab = "<table border='1'><tr><th>ID</th><th>Product</th><th>Quantity</th><th>Price</th><th>Total</th></tr>";
+            data.items.forEach(function(item, index) {
+                let total = item.quantity * item.price;
+                tab += "<tr><td>" + (index + 1) + "</td><td>" + item.name + "</td><td>" + item.quantity + "</td><td>$" + item.price + "</td><td>$" + total + "</td></tr>";
+            });
+            tab += "</table>";
+
+            let ship = `<h2>Shipping</h2>Address: ${data.shipping.address.street}, ${data.shipping.address.city}, ${data.shipping.address.state} ${data.shipping.address.zipCode}<br>`
+            
+            document.getElementById("div1").innerHTML += text;
+            document.getElementById("div1").innerHTML += tab;
+            document.getElementById("div1").innerHTML += ship;
+
+        }
+        
+        fetch('order.json')
+            .then(response => response.json())
+            .then(data => orders(data))
+            .catch(error => console.log('error', error));
+        </script> -->
+        <!-- ------------------------------------------------------------------- -->
+        <!-- <p id="out"></p>
+
+        <script> 
+            let person = {
+                "firstname":"John",
+                "lastname":"Doe",
+                "age":30,
+                "cars":[ "Toyota", "BMW", "BVD", "Honda","Hyndai"]
+            };
+            let text = person.firstname + " " + person.lastname + " is " + person.age + " years old.";
+            // document.getElementById("out").innerHTML = person.firstname;
+            person.cars.forEach(function (car) {
+                document.getElementById("out").innerHTML += "--" + car + "<br>";
+            });
+        </script> -->
+    </body>
+</html>

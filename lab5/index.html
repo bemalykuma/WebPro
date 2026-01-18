@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Lab5</title>
+    </head>
+    <body>
+        <h1>The age of dinosaurs</h1>
+        <h4>Dinosaurs lived during the Mesozoic Era, also known as the
+            "Age of Reptiles," which spanned from approximately 252 to 66
+            million years ago. This era is further divided into three periods:
+            the Triassic, Jurassic, and Cretaceous.
+        </h4>
+        <div class="left">
+            <h1>Triassic Period</h1>
+            <img
+                src="http://webdev.it.kmitl.ac.th/labdocs/lab5/img/triassic.jpg">
+            <p>(252 to 201 million years ago) This period saw the initial
+                diversification of dinosaurs, with early forms like Eoraptor and
+                Plateosaurus.
+            </p>
+        </div>
+        <div class="main">
+            <h1>Jurassic Period</h1>
+            <img
+                src="http://webdev.it.kmitl.ac.th/labdocs/lab5/img/jurassic.jpg">
+            <p>(201 to 145 million years ago) The Jurassic is often associated
+                with the rise of large, long-necked sauropods like Brachiosaurus
+                and Diplodocus, as well as iconic dinosaurs like Stegosaurus and
+                Allosaurus.
+            </p>
+        </div>
+        <div class="right">
+            <h1>Cretaceous Period</h1>
+            <img
+                src="http://webdev.it.kmitl.ac.th/labdocs/lab5/img/cretaceous.jpg">
+            <p>(145 to 66 million years ago) This period witnessed the peak of
+                dinosaur diversity, including iconic creatures like Triceratops,
+                Tyrannosaurus Rex, and the duck-billed dinosaurs.
+            </p>
+        </div>
+
+
+        <style>
+            * {
+            box-sizing:border-box;
+            }
+            .left {
+            background-color:#2196F3;
+            padding:20px;
+            float:left;
+            width:33%; 
+            }
+            .main {
+            background-color:rgb(255, 91, 140);
+            padding:20px;
+            float:left;
+            width:33%; 
+            }
+            .right {
+                background-color:#4CAF50;
+                padding:20px;
+                float:left;
+                width:33%; 
+            }
+
+            img {
+                width: 100%;
+            }
+            
+            @media screen and (max-width:1000px) {
+                .left, .main, .right{
+                    width:100%; 
+                }        
+            }
+
+            </style>
+        <!-- =----------------------------------------------------------------------------- 
+        <style>
+            img {
+                max-width:100%;
+                height:auto;
+            }
+        </style> -->
+        <!-- --------------------------------------------------------------------- -->
+        <!-- <h2>Responsive Image</h2>
+        <img
+            src="http://webdev.it.kmitl.ac.th/labdocs/lab5/img/blue-and-sky.jpg">
+        <style>
+            img {
+                width:100%;
+            }
+        </style> -->
+
+    </body>
+</html>
