@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fav Movie</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            font-family: 'Kanit', sans-serif;
+        }
+        body {
+            background-color: #e2e2e2;
+            margin: 0;
+            padding: 0;
+        }
+        .card {
+            text-align: center;
+            background-color: white;
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            font-family: Arial, sans-serif;
+            min-height: 200px;
+            height: auto;
+        }
+        .itm {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px 0;
+            background-color: #f0f0f0;
+            padding: 8px 13px;
+            border-radius: 5px;
+        }
+        .del {
+            background-color: rgb(212, 1, 1);
+            color: white;
+            border: none;
+            padding: 5px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        #name {
+            padding: 7px 10px;
+            width: 80%;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .add {
+            background-color: #2a66ff;
+            color: white;
+            border: none;
+            padding: 7px 11px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .delall {
+            background-color: #2a66ff;
+            color: white;
+            border: none;
+            padding: 7px 20px;
+            right: 0;
+            
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .del_cus {
+            float: right;
+            margin: 10px 0px;
+            width: 100%;
+            text-align: right;
+        }
+        
+        p {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            background-color: #f0f0f0;
+            padding: 8px 13px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>🎬 รายการภาพยนตร์/ซีรีส์โปรด 🎬</h2>
+        <div>
+            <input type="text" name="name" id="name" placeholder="ชื่อภาพยนตร์หรือซีรีส์">
+            <button onclick="add()" class="add">➕เพิ่ม</button>
+        </div>
+        <div class="del_cus"><button onclick="delall()" class="delall">🗑️ลบทั้งหมด</button></div>
+        <div id="items"></div>
+    </div>
+
+    <script>
+        let item_area = document.getElementById("items");
+        let item_all = []; 
+        
+        function add() {
+            let newItem = document.getElementById("name").value;
+            if (newItem.trim() === "") {return;}
+            item_all.push(newItem);
+            render();
+            document.getElementById("name").value = "";
+            
+        }
+
+        function del(index) {
+            item_all.splice(index, 1);
+            if (item_all.length === 0) {
+                item_area.innerHTML = `<p >ยังไม่มีรายการโปรด ☹︎</p>`;
+                localStorage.removeItem("item");
+                return;
+            }
+            render();
+        }
+            
+        let stored = localStorage.getItem("item");
+        if (stored) {
+            item_all = JSON.parse(stored);
+            render();
+        }else {
+            item_area.innerHTML = `<p >ยังไม่มีรายการโปรด ☹︎</p>`;
+        }
+
+        function render() {
+            localStorage.setItem("item", JSON.stringify(item_all))
+            item_area.innerHTML = ""
+            item_all.forEach((item, index) => {
+                item_area.innerHTML += `<div class="itm"><label>⭐${item}</label><button onclick="del(${index})" class="del">ลบ</button></div>`
+            });
+
+        }
+        function delall() {
+            item_all = [];
+            item_area.innerHTML = `<p >ยังไม่มีรายการโปรด ☹︎</p>`;
+            localStorage.removeItem("item");
+
+        }
+    </script>
+</body>
+</html>
