@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>song list</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            
+        }
+        td, th {
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <table id="tab" border="1">
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Artist</th>
+            <th>release_year</th>
+            <th>label</th>
+        </tr>
+    </table>
+
+    <script>
+        let table = document.getElementById('tab');
+        function songTable(data) {
+            data.songs.forEach(details => {
+                let tr = document.createElement('tr');
+                let td = document.createElement('td');
+                td.appendChild(document.createTextNode(details.id));
+                tr.appendChild(td);
+
+                td = document.createElement('td');
+                td.appendChild(document.createTextNode(details.title));
+                tr.appendChild(td);
+
+                td = document.createElement('td');
+                td.appendChild(document.createTextNode(details.artist));
+                tr.appendChild(td);
+
+                td = document.createElement('td');
+                td.appendChild(document.createTextNode(details.release_year));
+                tr.appendChild(td);
+
+                td = document.createElement('td');
+                td.appendChild(document.createTextNode(details.label));
+                tr.appendChild(td);
+                table.appendChild(tr);
+            });
+
+        }
+
+
+        fetch('songs.json')
+            .then(response => response.json())
+            .then(data => songTable(data))
+            .catch(error => console.log('error', error));
+    </script>
+</body>
+</html>

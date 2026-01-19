@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>add Local</title>
+    <style>
+        body {
+            align-items: center;
+            justify-self: center;
+            background-color: rgb(235, 235, 235);
+            
+        }
+        .card {
+            background-color: rgb(255, 255, 255);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            box-shadow: 0px 0px 10px rgb(171, 171, 171);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 100px;
+            width: 250px;
+
+        }
+        input {
+            width: 95%;
+            border-radius: 5px;
+            border: 0.5px solid rgb(170, 170, 170);
+            padding: 5px;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 0;
+        }
+        .save {
+            background-color: rgb(22, 156, 37);
+            color: aliceblue;
+            border-style: none;
+            padding: 4px 10px;
+        }
+        .view {
+            background-color: rgb(38, 85, 255);
+            color: aliceblue;
+            border-style: none;
+            padding: 4px 10px;
+        }
+        .del {
+            background-color: rgb(179, 26, 26);
+            color: aliceblue;
+            border-style: none;
+            padding: 4px 10px;
+        }
+        select {
+            border-radius: 5px;
+            padding: 5px;
+            
+        }
+        button {
+            cursor: pointer;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Information</h1>
+        <label for="prefix">คำนำหน้า : </label>
+        <select name="pre" id="prefix">
+            <option value="mr">เลือกคำนำหน้า</option>
+            <option value="mr">Mr/นาย</option>
+            <option value="mrs">Mrs/นาง</option>
+            <option value="miss">Miss/นางสาว</option>
+        </select>
+            <label for="fname">ชื่อจริง : </label><input type="text" id="fname">
+            <label for="lname">นามสกุล : </label><input type="text" id="lname">
+            <label for="addr">ที่อยู่ : </label><input type="text" id="addr">
+            <label for="job">อาชีพ : </label><input type="text" id="job">
+            <label for="tel">เบอร์โทร : </label><input type="tel" id="tel">
+        <div>
+            <button onclick="save()" class="save">save</button>
+            <button onclick="view()" class="view">view</button>
+            <button onclick="del()" class="del">delete</button>
+        </div>
+
+    </div>
+    <script>
+        function save() {
+            let pre = document.getElementById('prefix').value;
+            let fname = document.getElementById('fname').value;
+            let lname = document.getElementById('lname').value;
+            let addr = document.getElementById('addr').value;
+            let job = document.getElementById('job').value;
+            let tel = document.getElementById('tel').value;
+            
+            localStorage.setItem('prefix', pre);
+            localStorage.setItem('firstName', fname);
+            localStorage.setItem('lastName', lname);
+            localStorage.setItem('address', addr);
+            localStorage.setItem('job', job);
+            localStorage.setItem('tel', tel);
+        }
+        
+        function view() {
+            document.getElementById('prefix').value = localStorage.getItem('prefix');
+            document.getElementById('fname').value = localStorage.getItem('firstName');
+            document.getElementById('lname').value = localStorage.getItem('lastName');
+            document.getElementById('addr').value = localStorage.getItem('address');
+            document.getElementById('job').value =  localStorage.getItem('job');
+            document.getElementById('tel').value = localStorage.getItem('tel');
+        }
+
+        function del() {
+            localStorage.removeItem('prefix')
+            localStorage.removeItem('firstName')
+            localStorage.removeItem('lastName')
+            localStorage.removeItem('address')
+            localStorage.removeItem('job')
+            localStorage.removeItem('tel')
+        }
+    </script>
+</body>
+</html>
