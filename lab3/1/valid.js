@@ -53,7 +53,7 @@ function Register() {
 
         alert("Password must contain at least one special character");
         return false;
-    }
+      }
     if (!/[0-9]/.test(password)) {
         alert("Password must contain at least one number");
         return false;

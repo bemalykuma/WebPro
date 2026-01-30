@@ -24,6 +24,9 @@
             width: 150px;
             margin-left: 5px;
         }
+        #test {
+            color: brown;
+        }
     </style>
     </head>
     <body>
@@ -35,6 +38,8 @@
             <select id="countryOptions"></select>
         </div>
         <button onclick="changlanguage();"id="btn">เปลี่ยนเป็นภาษาอังกฤษ</button>
+
+        <div id="s"></div>
 
         <script>
         let thai = true;
@@ -92,6 +97,10 @@
             let btntxt = document.getElementById("btn").firstChild;
             document.getElementById("btn").replaceChild(txt, btntxt);
         }
+        let a = document.createElement('a');
+        a.appendChild(document.createTextNode("test"));
+        a.setAttribute("id", "test");
+        document.getElementById('s').appendChild(a);
     </script>
     </body>
 </html>
