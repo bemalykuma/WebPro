@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>User Data</title>
+        <style>
+        body {
+            font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", sans-serif;
+            margin: 20px;
+            background-color: rgb(210, 223, 255);
+            background: url(/images/bg.png), url(/images/bg_gradation_01.png) repeat-x top left, #f5f5f5;
+
+            justify-items: center;
+            display: grid;
+            height: 100vh;
+            place-items: center;
+        }
+        .card {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 400px;
+            width: 400px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        h2, h3 {
+            margin: 0;
+            margin-right: 10px;
+            
+        }
+        h2 {
+            color: rgb(246, 94, 185);
+        }
+        h3 {
+            color: rgb(188, 158, 179);
+            font-size: 18px;
+            font-weight: normal;
+            padding: 0;
+            align-self: center;
+        }
+        .head {
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            display: flex;
+        }
+        p {
+            margin: 15px 0;
+            color: #930042;
+            font-weight: 600;
+            span {
+                font-weight: normal;
+                color: #db008e;
+            }
+        }
+        .circle {
+            width: 15px;
+            height: 15px;
+            background-color: #09de34;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 15px;
+            align-self: center;
+        }
+        .inner {
+            background: -webkit-gradient(linear, left top, right top, from(rgb(255, 180, 210)), to(rgb(210, 180, 255)));
+            background: -webkit-linear-gradient(left, rgb(255, 180, 210) 0%, rgb(210, 180, 255) 100%);
+            background: linear-gradient(90deg, rgb(255, 180, 210) 0%, rgb(210, 180, 255) 100%);
+            border-radius: 10px;
+            padding: 5px;
+            margin-top: -20px;
+            
+        }
+         a{
+                padding: 14px 15px;
+                background: -webkit-gradient(linear, left top, right top, from(rgb(255, 180, 210)), to(rgb(210, 180, 255)));
+                background: -webkit-linear-gradient(left, rgb(255, 180, 210) 0%, rgb(210, 180, 255) 100%);
+                background: linear-gradient(90deg, rgb(255, 180, 210) 0%, rgb(210, 180, 255) 100%);
+                color: white;
+                border: none;
+                cursor: pointer;
+                border-radius: 5px;
+                width: 80px;
+                font-weight: 600;
+                display: inline-block;
+                text-align: center;
+                margin-top: 20px;
+                text-decoration: none;
+            }
+            a:hover {
+                background: -webkit-gradient(linear, left top, right top, from(rgb(225, 180, 210)), to(rgb(180, 180, 255)));
+                background: -webkit-linear-gradient(left, rgb(225, 180, 210) 0%, rgb(180, 180, 255) 100%);
+                background: linear-gradient(90deg, rgb(225, 180, 210) 0%, rgb(180, 180, 255) 100%);
+
+            }
+
+    </style>
+    </head>
+    <body>
+        <div>
+
+            <div class="inner">
+                <div class="card">
+                    <div>
+                        <div class="head">
+                            <div class="circle"></div>
+                            <h2><%= data[0].username %> </h2>
+                            <h3> <%= data[0].email %></h3>
+                        </div>
+                        <p>Name: <span><%= data[0].firstname %> <%= data[0].lastname
+                                %></span></p>
+                        <p>Age: <span><%= data[0].age %></span></p>
+                        <p>Address: <span><%= data[0].address %></span></p>
+                        <p>Phone: <span><%= data[0].phone %></span></p>
+    
+                    </div>
+                </div>
+            </div>
+            <a href="/">Log Out</a>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            body {
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                margin: 20px;
+            }
+            label {
+                display: inline-block;
+                width: 100px;
+                margin-bottom: 10px;
+            }
+            input[type="text"], input[type="email"], input[type="tel"] {
+                width: 200px;
+                padding: 5px;
+                margin-bottom: 10px;
+            }
+            input[type="submit"] {
+                padding: 8px 15px;
+                background-color: #4d66ab;
+                color: white;
+                border: none;
+                cursor: pointer;
+                border-radius: 5px;
+            }
+            input[type="submit"]:hover {
+                background-color: #343882;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Instructor Form</h1>
+        <form action="/formget" method="GET">
+            ID : <input type="text" name="id"> <br>
+            First Name : <input type="text" name="firstname"> <br>
+            Last Name : <input type="text" name="lastname"> <br>
+            Email : <input type="email" name="email"> <br>
+            Phone : <input type="tel" name="phone"> <br>
+            <input type="submit" value="Submit">
+        </form>
+    </body>
+</html>

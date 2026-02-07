@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Log in</title>
+        <style>
+            body {
+                display: grid;
+                justify-items: center;
+                align-items: center;
+                height: 100vh;
+                margin: 20px;
+                font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", sans-serif;
+                background-color: rgb(217, 217, 217);
+                background: url(/images/bg.png), url(/images/bg_gradation_01.png) repeat-x top left,url(/images/bg_gradation_02.png) repeat-x top left, #f5f5f5;
+                color: #333333;
+            }
+            label {
+                display: inline-block;
+                width: 100px;
+                margin-bottom: 10px;
+            }
+            input {
+                width: 300px;
+                padding: 10px;
+                margin-bottom: 20px;
+                margin-top: 10px;
+            }
+            input[type="text"], input[type="password"] {
+                border: 1px solid #cccccc;
+                border-radius: 5px;
+            }
+            input[type="text"]:focus, input[type="password"]:focus {
+                border-color: rgb(210, 180, 255);
+                outline: none;
+            }
+            div {
+
+                padding: 30px;
+                justify-items: center;
+                box-shadow: 0px 0px 12px #ffd1f6;
+                border-radius: 10px;
+                background-color: white;
+            }
+            button{
+                padding: 14px 15px;
+                background: -webkit-gradient(linear, left top, right top, from(rgb(255, 180, 210)), to(rgb(210, 180, 255)));
+                background: -webkit-linear-gradient(left, rgb(255, 180, 210) 0%, rgb(210, 180, 255) 100%);
+                background: linear-gradient(90deg, rgb(255, 180, 210) 0%, rgb(210, 180, 255) 100%);
+                color: white;
+                border: none;
+                cursor: pointer;
+                border-radius: 5px;
+                width: 100%;
+                font-weight: 600;
+            }
+            button:hover {
+                background: -webkit-gradient(linear, left top, right top, from(rgb(225, 180, 210)), to(rgb(180, 180, 255)));
+                background: -webkit-linear-gradient(left, rgb(225, 180, 210) 0%, rgb(180, 180, 255) 100%);
+                background: linear-gradient(90deg, rgb(225, 180, 210) 0%, rgb(180, 180, 255) 100%);
+
+            }
+            p {
+                color: gray;
+                margin-bottom: 30px;
+            }
+            h1 {
+                text-align: center;
+                color: #333333;
+                margin-bottom: 20px;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <div>
+            <h1>Welcome!</h1>
+            <p>Please log in to your account.</p>
+            <form action="/formget" method="GET">
+                Username or Email <br><input type="text" name="username"
+                    id="username" placeholder="Enter your username or email">
+                <br>
+                Password <br><input type="password" name="password"
+                    id="password" placeholder="Enter your password"> <br>
+                <button type="submit" id="button">Log In</button>
+            </form>
+        </div>
+    </body>
+</html>

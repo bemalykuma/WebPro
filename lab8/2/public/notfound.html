@@ -1,0 +1,114 @@
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>User Not Found</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #111827;
+      --text: #e5e7eb;
+      --accent: #000000;
+      --accent-contrast: #fff;
+      --muted: #9ca3af;
+    }
+    html, body {
+      height: 100%;
+    }
+    body {
+      margin: 0;
+      background: rgb(213, 213, 213);
+      color: black;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", sans-serif;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+    }
+    .card {
+      width: 100%;
+      max-width: 460px;
+      background-color: white;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 0px 10px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.06);
+      border-radius: 16px;
+      padding: 24px;
+    }
+    .icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: var(--accent-contrast);
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      margin-bottom: 16px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.35);
+    }
+    h1 {
+      font-size: 1.375rem;
+      margin: 0 0 8px;
+      letter-spacing: 0.2px;
+    }
+    p {
+      margin: 0 0 16px;
+      color: black;
+      line-height: 1.5;
+    }
+    .actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 8px;
+    }
+    .btn {
+      appearance: none;
+      border: none;
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: var(--accent-contrast);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.35);
+    }
+    .btn-primary:hover { cursor: pointer; }
+    .btn-secondary {
+      background: #1f2937;
+      color: var(--text);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .btn-secondary:hover { transform: translateY(-1px); }
+    .tips {
+      margin-top: 18px;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    a {
+      color: #93c5fd;
+      text-decoration: none;
+    }
+    a:focus, .btn:focus {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+<body>
+  <main class="card" role="alert" aria-live="polite">
+    <div class="icon" aria-hidden="true">!</div>
+    <h1>ไม่พบผู้ใช้</h1>
+    <p>ไม่พบข้อมูลผู้ใช้ที่คุณป้อน กรุณาลองใหม่อีกครั้ง</p>
+
+    <div class="actions">
+      <!-- Change href to your login page -->
+      <a class="btn btn-primary" href="/">ลองอีกครั้ง</a>
+      
+    </div>
+
+    
+  </main>
+
+
+<deepl-input-controller translate="no"></deepl-input-controller></body></html>
