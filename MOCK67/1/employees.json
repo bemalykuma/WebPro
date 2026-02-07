@@ -1,0 +1,101 @@
+[
+  {
+    "id": "1",
+    "Gender": "Female",
+    "LastName": "Davolio",
+    "FirstName": "Nancy",
+    "Position": "Sales Representative",
+    "Salary": 48000,
+    "Address": "507-20th Ave. E. Apt. 2A",
+    "Email": "nancy.davolio@example.com"
+    ,"bar": 75
+  },
+  {
+    "id": "2",
+    "Gender": "Male",
+    "LastName": "Fuller",
+    "FirstName": "Andrew",
+    "Position": "Vice President",
+    "Salary": 105000,
+    "Address": "908 W. Capital Way",
+    "Email": "andrew.fuller@example.com"
+    ,"bar": 62
+  },
+  {
+    "id": "3",
+    "Gender": "Female",
+    "LastName": "Leverling",
+    "FirstName": "Janet",
+    "Position": "Sales Representative",
+    "Salary": 52000,
+    "Address": "722 Moss Bay Blvd.",
+    "Email": "janet.leverling@example.com"
+    ,"bar": 100
+  },
+  {
+    "id": "4",
+    "Gender": "Female",
+    "LastName": "Peacock",
+    "FirstName": "Margaret",
+    "Position": "Sales Representative",
+    "Salary": 50000,
+    "Address": "4110 Old Redmond Rd.",
+    "Email": "margaret.peacock@example.com"
+    ,"bar": 83
+  },
+  {
+    "id": "5",
+    "Gender": "Male",
+    "LastName": "Buchanan",
+    "FirstName": "Steven",
+    "Position": "Sales Manager",
+    "Salary": 78000,
+    "Address": "14 Garrett Hill",
+    "Email": "steven.buchanan@example.com"
+    ,"bar": 10
+  },
+  {
+    "id": "6",
+    "Gender": "Male",
+    "LastName": "Suyama",
+    "FirstName": "Michael",
+    "Position": "Sales Representative",
+    "Salary": 47000,
+    "Address": "Coventry House Miner Rd.",
+    "Email": "michael.suyama@example.com"
+    ,"bar": 90
+  },
+  {
+    "id": "7",
+    "Gender": "Male",
+    "LastName": "King",
+    "FirstName": "Robert",
+    "Position": "Sales Representative",
+    "Salary": 55000,
+    "Address": "Edgeham Hollow Winchester Way",
+    "Email": "robert.king@example.com"
+    ,"bar": 50
+  },
+  {
+    "id": "8",
+    "Gender": "Female",
+    "LastName": "Callahan",
+    "FirstName": "Laura",
+    "Position": "Inside Sales Coordinator",
+    "Salary": 42000,
+    "Address": "4726-11th Ave. N.E.",
+    "Email": "laura.callahan@example.com"
+    ,"bar": 40
+  },
+  {
+    "id": "9",
+    "Gender": "Female",
+    "LastName": "Dodsworth",
+    "FirstName": "Anne",
+    "Position": "Sales Representative",
+    "Salary": 53000,
+    "Address": "7 Houndstooth Rd.",
+    "Email": "anne.dodsworth@example.com"
+    ,"bar": 30
+  }
+]

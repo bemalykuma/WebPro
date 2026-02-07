@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>employees</title>
+
+    <style>
+        div #bar {
+            background-color: rgb(249, 48, 182);
+            height: 20px;
+        }
+        #block {
+            width: 200px;
+        }
+        table {
+            border-collapse: collapse;
+        }
+        tr{
+            border-bottom: 1px solid rgb(221, 221, 221);
+        }
+        td, th {
+            padding: 6px;
+        }
+        th {
+            background-color: rgb(255, 15, 171);
+            color: aliceblue;
+        }
+        tr:nth-child(even) {
+            background-color: white;
+        }
+        tr:nth-child(odd) {
+            background-color: rgb(243, 242, 242);
+        }
+    </style>
+</head>
+<body>
+   
+    <table id="tab">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>NAME</th>
+                <th>GENDER</th>
+                <th>POSITION</th>
+                <th>POSITION BAR</th>
+                <th>ADDRESS</th>
+            </tr>
+        </thead>
+    </table>
+
+    <script>
+        let table = document.getElementById("tab");
+        let tbody = document.createElement('tbody');
+
+        function myfunc(data) {
+            table.appendChild(tbody);
+            data.forEach(dat => {
+                let tr = document.createElement('tr');
+                let td = document.createElement('td');
+                td.appendChild(document.createTextNode(dat.id));
+                tr.appendChild(td);
+                td = document.createElement('td');
+                td.appendChild(document.createTextNode(`${dat.FirstName} ${dat.LastName}`));
+                tr.appendChild(td);
+
+                td = document.createElement('td');
+                let txt = document.createElement('p');
+                txt.appendChild(document.createTextNode(dat.Gender[0]));
+                txt.setAttribute("class", "id");
+                if (dat.Gender[0] === "F"){
+                    txt.style.color = "white";
+                    txt.style.backgroundColor = "pink";
+                    
+                }else {
+                    txt.style.color = "white";
+                    txt.style.backgroundColor = "blue";
+                }
+                td.appendChild(txt);
+                tr.appendChild(td);
+
+                td = document.createElement('td');
+                td.appendChild(document.createTextNode(dat.Position));
+                tr.appendChild(td);
+
+                td = document.createElement('td ');
+                let block = document.createElement('div');
+                let bar = document.createElement('div');
+                block.setAttribute("id", "block");
+                bar.setAttribute("id", "bar");
+                bar.style.width = `${dat.bar}%`;
+                block.appendChild(bar);
+                td.appendChild(block);
+                tr.appendChild(td);
+
+                td = document.createElement('td');
+                td.appendChild(document.createTextNode(dat.Address));
+                tr.appendChild(td);
+                tbody.appendChild(tr);
+                console.log(dat.Firstname);
+            });
+        }
+
+        fetch('employees.json')
+            .then(response => response.json())
+            .then(data => myfunc(data))
+            .catch(error => console.log('error', error));
+    </script>
+</body>
+</html>

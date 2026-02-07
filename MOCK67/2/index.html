@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        div {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 400px;
+        }
+        button {
+            width: 120px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+
+        <label for="select">เลือกชื่อผู้ใช้งาน :</label>
+        <select name="user" id="user-select">
+            <option value="opt">กรุณาเลือกชื่อผู้ใช้</option>
+        </select>
+        <button id="btn-sh" onclick="show()">แสดงข้อมูลผู้ใช้</button>
+        
+        <label for="numid">หมายเลขบัตรประชาชน:</label>
+        <input type="text" id="numid">
+        <label for="id">คำนำหน้านาม:</label>
+        <select name="user" id="prefix">
+            <option value="opt">เลือกคำนำหน้านาม</option>
+            <option value="mr">นาย</option>
+            <option value="ms">นาง/นางสาว</option>
+        </select>
+        <label for="fname" >ชื่อ:</label>
+        <input type="text" id="fname" placeholder="กรุณากรอกชื่อของคุณ">
+        <label for="lname">นามสกุล:</label>
+        <input type="text" id="lname" placeholder="กรุณากรอกนามสกุลของคุณ">
+        <label for="id" >Email:</label>
+        <input type="email" id="email" placeholder="กรุณากรอกอีเมลของคุณ">
+        
+        <button id="btn-submit" onclick="submit()">submit</button>
+    </div>
+
+    <script>
+        let select = document.getElementById('user-select');
+        
+        function myfunc(data) {
+            data.forEach(dat => {
+                let option = document.createElement('option');
+                let txt = document.createTextNode(`${dat.id} ${dat.FirstName}`);
+                option.appendChild(txt);
+                select.appendChild(option);
+            });
+        }
+
+        fetch('employees.json')
+            .then(response => response.json())
+            .then(data => myfunc(data))
+            .catch(error => console.log('error', error));
+        
+
+        function submit() {
+            let userID = document.getElementById("user-select").value;
+            let num = document.getElementById("numid").value;
+            let prefix = document.getElementById("prefix").value;
+            let fname = document.getElementById("fname").value;
+            let lname = document.getElementById("lname").value;
+            let email = document.getElementById("email").value;
+            
+            if (num.length != 13 || isNaN(num)) {
+                alert("หมายเลขบัตรประชาชนต้องมี 13 ตัวและเป็นตัวเลข");
+                return;
+            }
+            if (email.indexOf('@') == -1 || email.indexOf('.') == -1) {
+                alert("Email ต้องมี @ และ .");
+                return;
+            }
+            
+            let user = {"num" : num, "prefix" : prefix, 
+            "fname": fname, "lname":lname, "email": email};
+            localStorage.setItem(`${userID}`, JSON.stringify(user));
+            alert("Submit Success")
+            
+        }
+        
+        function show() {
+            let userID = document.getElementById("user-select").value;
+            let item = localStorage.getItem(`${userID}`);
+            let real = JSON.parse(item);
+            if (real == null) {
+                document.getElementById("numid").value = "";
+                document.getElementById("prefix").value = "เลือกคำนำหน้านาม";
+                document.getElementById("fname").value = "";
+                document.getElementById("lname").value = "";
+                document.getElementById("email").value = "";
+                return;
+            }else {
+                document.getElementById("numid").value = real.num;
+                document.getElementById("prefix").value = real.prefix;
+                document.getElementById("fname").value = real.fname;
+                document.getElementById("lname").value = real.lname;
+                document.getElementById("email").value = real.email;
+            }
+
+        }
+    </script>
+
+</body>
+</html>
