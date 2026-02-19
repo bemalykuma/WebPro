@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Manage Orders</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/style.css">
+
+    </head>
+    <body>
+        <div class="layout">
+            <div class="inner">
+                <div class="card">
+                    <h1>ระบบติดตามคำสั่งซื้อ</h1>
+                    <form action="/getData" method="get">
+                        <label for="name"><input type="text" name="name"
+                                placeholder="ชื่อลูกค้า"></label>
+                        <label for="product"><input type="text" name="product"
+                                placeholder="รายการสินค้า"></label>
+                        <label for="address"><input type="text" name="address"
+                                placeholder="ที่อยู่"></label>
+                        <label for="phone"><input type="text" name="phone"
+                                placeholder="เบอร์โทร"></label>
+                        <button type="submit"
+                            class="add">เพิ่มคำสั่งซื้อ</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="layout">
+            <div class="inner">
+                <div class="card-tab">
+                    <h1>รายการคำสั่งซื้อ</h1>
+                    <table border="1">
+                        <tr>
+                            <th class="id"> ID</th>
+                            <th class="name">ลูกค้า</th>
+                            <th class="pro">สินค้า</th>
+                            <th class="state">สถานะ</th>
+                            <th class="ch">เปลี่ยนสถานะ</th>
+                        </tr>
+                        <% data.forEach((item, index) => { %>
+                        <tr>
+                            <td><%= index + 1 %></td>
+                            <td><%= item.name %></td>
+                            <td><%= item.product %></td>
+                            <td><%= item.status %></td>
+                            <td>
+                                <form action="/changeStatus/<%= item.id %>" method="GET">
+                                    <select name="state">
+                                        <option selected hidden><%= item.status %></option>
+                                        <option
+                                            value="กำลังดำเนินการ">กำลังดำเนินการ</option>
+                                        <option value="กำลังจัดส่ง">กำลังจัดส่ง</option>
+                                        <option value="จัดส่งแล้ว">จัดส่งแล้ว</option>
+                                        <option value="ยกเลิก">ยกเลิก</option>
+                                    </select>
+                                    <button type="submit"
+                                        class="change">เปลี่ยนสถานะ</button>
+                                </form>
+                            </td>
+                        </tr>
+                        <% }); %>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -32,7 +32,6 @@ app.get('/',  (req, res) => {
         conn.query(sql, function (err, result) {
             if (err) throw err;
             console.log("Table created or already exists");
-            tableCreated = true;
         });
         const sql1 = `INSERT IGNORE INTO Users (id, username, password, email, firstname, lastname, age, address, phone) VALUES 
         (1, 'it001', 'pwof001', 'bobby@gmail.com', 'Bobby', 'Tables', 30, '123 Main St', '091-392-3920'),
@@ -54,7 +53,6 @@ app.get('/',  (req, res) => {
         conn.query(sql1, function (err, result) {
             if (err) throw err;
             console.log("Data inserted");
-            dataInserted = true;
         });
     const sql2 = "SELECT * FROM Users";
     conn.query(sql2, function (err, results) {

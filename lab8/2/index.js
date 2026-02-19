@@ -6,7 +6,6 @@ const port = 3000;
 
 // เพิ่มใช้งานไฟล์
 const conn = require('./database');
-const e = require('express');
 
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
