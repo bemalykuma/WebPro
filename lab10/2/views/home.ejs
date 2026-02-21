@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>To Do List</title>
+        <style>
+            * {
+                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            }
+            body {
+                background: url('/images/bg.png'), #ffffff;
+                padding: 20px;
+            }
+            h1 {
+                color: #ff11bb;
+            }
+            .post-it {
+                background-color: #ffdfec;
+                border: 1px solid #ccc;
+                padding: 10px;
+                margin: 10px;
+                width: 200px;
+                height: 150px;
+                float: left;
+                position: relative;
+            }
+            
+            .checkbox {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+            }
+            .deadline {
+                position: absolute;
+                bottom: 10px;
+                right: 10px;
+                font-size: 0.8em;
+                color: #888;
+
+            }
+            h3 {
+                font-size: 20px;
+                margin-bottom: 0;
+            }
+            p {
+                font-size: 14px;
+                margin-top: 5px;
+            }
+            input[type="checkbox"] {
+                transform: scale(1.5);
+                accent-color: #ff00aa;
+            }
+            .add {
+                display: inline-block;
+                width: 40px;
+                height: 40px;
+                background-color: #ff00aa;
+                color: white;
+                font-size: 30px;
+                text-align: center;
+                line-height: 40px;
+                border-radius: 50%;
+                text-decoration: none;
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+            }
+
+
+
+        </style>
+    </head>
+    <body>
+        <span>
+            <h1>To Do List</h1>
+        </span>
+        <span>
+            <a href="/add" class="add">+</a>
+        </span>
+        <% if (tasks.length === 0) { %>
+        <p>No tasks yet!</p>
+        <% } else { %>
+        <% tasks.forEach(task => { %>
+        <div class="post-it" id="post-it<%=task.id%>">
+            <h3><%= task.title %></h3>
+            <hr>
+            <p><%= task.description %></p>
+            <div class="deadline">Deadline: <%= task.deadline %></div>
+            <input type="checkbox" name="task_<%= task.id %>" class="checkbox"
+                id="task_<%= task.id %>" <%=task.status === 1 ? 'checked' : ''
+                %> onclick="location.href='/check/<%= task.id
+            %>?status=<%=task.status === 1 ? 0 : 1 %>'">
+        </div>
+        <% }) %>
+        <% } %>
+        <script>
+            let postits = document.getElementsByClassName('post-it');
+            let colors = ['#ffdfec', '#ffccdd', '#ffb3bb', '#ff99aa', '#ff8088'];
+            for (let i = 0; i < postits.length; i++) {
+                postits[i].style.backgroundColor = colors[i % colors.length];
+            }
+
+        </script>
+    </body>
+</html>
