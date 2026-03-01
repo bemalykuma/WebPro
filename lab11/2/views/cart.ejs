@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: #000000;
+            color: #ffffff;
+            padding: 5px;
+            
+        }
+        h1 {
+            text-align: center;
+            color: #d6a834;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #d6a834;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #d6a834;
+            color: #ffffff;
+        }
+            td {
+                background-color: #ffffff;
+                color: #000000;
+            }
+            tr:nth-child(even) td {
+                background-color: #f2f2f2;
+            }
+            tr:hover td {
+                background-color: #d9c696;
+            }
+            .total-row td {
+                font-weight: bold;
+                background-color: #d6a834;
+                color: #ffffff;
+            }
+        a {
+            text-decoration: none;
+        }
+        button {
+            background-color: #ffffff;
+            color: #d6a834;
+            padding: 10px 20px;
+            border: 10px double #d6a834;
+            cursor: pointer;
+            margin-top: 20px;
+            font-size: large;
+            font-weight: bold;
+            
+        }
+        button:hover {
+            background-color: #d6a834;
+            color: #ffffff;
+        }
+        nav {
+                background-color: #d6a834;
+                padding: 20px;
+            }
+        nav a {
+            color: #ffffff;
+            margin: 0 15px;
+            font-weight: bold;
+            font-size: large;
+        }
+        
+        nav a:hover {
+            text-decoration: underline;
+        }
+         .total {
+            margin-top: 20px;
+            text-align: right;
+            font-size: 1.5em;
+            color: #d6a834;
+        }
+        p {
+            text-align: center;
+            font-size: 1.2em;
+            color: #d6a834;
+            background-color: #ffffff;
+            padding: 50px;
+            border-radius: 5px;
+            width: 50%;
+            margin: 20px auto;
+            border: 10px double #d6a834;
+
+        }
+        .btn-menu {
+            display: block;
+            margin: 20px auto;
+            width: 200px;
+            background-color: #d6a834;
+
+            a {
+                text-decoration: none;
+                font-weight: bold;
+                color: #ffffff;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/">Menu</a>
+        <a href="/cart">Cart</a>
+    </nav>
+    
+        <h1>Carts</h1>
+
+        <% let sum = 0; %>
+        <% if (!data || data.length === 0) { %>
+            <p>Your cart is empty.</p>
+            <button class="btn-menu"><a href="/">Back to Menu</a></button>
+        <% } else { %>
+        <table>
+            <tr>
+                <th>#</th>
+                <th>Products</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+            </tr>
+            
+            <% data.forEach((item)=>{ %>
+                <% sum += item.price * (item.quantity || 1); %>
+                <tr>
+                    <td><%= item.product_id %></td>
+                    <td><%= item.name %></td>
+                    <td><%= item.price %>.00</td>
+                    <td><%= item.quantity || 1 %></td>
+                    <td><%= item.price * (item.quantity || 1) %>.00</td>
+                </tr>
+            <% }); %>  
+        </table>
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span class="btn">
+                <a href="/clear-cart"><button>Confirm Order</button></a>
+            </span>
+            <span class="total"><h2>Total: <%= sum %>.00 THB</h2></span>
+        </div>
+        <% } %>
+    </body>
+</html>

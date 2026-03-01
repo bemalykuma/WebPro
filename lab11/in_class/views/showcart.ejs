@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+                background-color: #f4f4f4;
+                padding: 20px;
+        }
+
+        nav {
+            margin-bottom: 20px;
+            background-color: rgb(57, 57, 57);
+            padding: 20px;
+            color: white;
+            text-decoration: none;
+        }
+        a {
+            color: white;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+         a:hover {
+            text-decoration: underline;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+            th {
+                background-color: #f2f2f2;
+            }
+
+            button {
+            background-color: #4c6daf;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            margin-top: 15px;
+            border-radius: 5px;
+            width: 100%;
+        }
+            button:hover {
+                background-color: #454ca0;
+            }
+    </style>
+</head>
+<body>
+        <h1>Carts</h1>
+        <nav>
+            <a href="/products">Products</a>
+            <a href="/cart">Cart</a>
+        </nav>
+        <% let sum = 0; %>
+        <table>
+            <tr>
+                <th>#</th>
+                <th>Products</th>
+                <th>Amount</th>
+                <th>Price</th>
+            </tr>
+            
+            <% data.forEach((item)=>{ %>
+                <% sum += item.price; %>
+                <tr>
+                    <td><%= item.id %></td>
+                    <td><%= item.name %></td>
+                    <td>1</td>
+                    <td><%= item.price %>.00</td>
+                </tr>
+            <% }); %>  
+                <tr>
+                    <td colspan="3" style="text-align: left;"><strong>Total:</strong></td>
+                    <td><strong><%= sum %>.00</strong></td>
+                </tr>
+        </table>
+        <a href="/products"><button>Products</button></a>
+        <a href="/clear-cart"><button>Clear Cart</button></a>
+    </body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Information</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: #fffcf6;
+            margin: 0;
+            padding: 20px;
+            justify-self: center;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            width: 400px;
+        }
+        input, textarea {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+            .fm-btn {
+                padding: 10px 20px;
+                background-color: #aa8978;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                margin-top: 10px;
+            }
+            .fm-btn:hover {
+                background-color: #866c5e;
+            }
+            a {
+                text-decoration: none;
+            }
+            textarea {
+                resize: vertical;
+            }
+            label {
+                font-weight: bold;
+            }
+            .layout-btn {
+                width: 400px;
+                display: flex;
+                justify-content: space-between;
+                margin-top: 10px;
+                gap: 10px;
+                a {
+                    width: 100%;
+                    button {
+                        width: 100%;
+                        padding: 10px 20px;
+                        background-color: #866c5e;
+                        color: white;
+                        border: none;
+                        border-radius: 5px;
+                        cursor: pointer;
+                    }
+                }
+            }
+            .card {
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                padding: 20px;
+                width: 450px;
+                padding-block: 30px;
+                background-color: white;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            }
+    </style>
+</head>
+<body>
+    <h1>Employee Information</h1>
+    <div class="container card">
+        <form action="/set-cookie" method="get">
+            <label for="customerId">Employee ID:</label>
+            <input type="text" id="customerId" name="customerId" value="<%= customers.CustomerId %>">
+            <label for="FirstName">Firstname:</label>
+            <input type="text" id="FirstName" name="FirstName" value="<%= customers.FirstName %>">
+            <label for="LastName">Lastname:</label>
+            <input type="text" id="LastName" name="LastName" value="<%= customers.LastName %>">
+            <label for="Address">Address:</label>
+            <textarea id="Address" name="Address"><%= customers.Address %></textarea>
+            <label for="Email">Email:</label>
+            <input type="email" id="Email" name="Email" value="<%= customers.Email %>">
+            <label for="Phone">Phone:</label>
+            <input type="text" id="Phone" name="Phone" value="<%= customers.Phone %>">
+            <button class="fm-btn" type="submit" >Save Data</button>
+        </form>
+        <div class="layout-btn">
+            <a href="/show-data"><button>Show Data</button></a>
+            <a href="/clear-data"><button>Clear Data</button></a>
+        </div>
+    </div>
+</body>
+</html>
